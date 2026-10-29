@@ -1,0 +1,32 @@
+[
+  {
+    "topic": "accounts",
+    "input_name": "accounts.html",
+    "page_url": "https://rosstat.gov.ru/statistics/accounts",
+    "input_sha256": "c469e3c6853317eae9f662c1e791ca6fc651b5e2139ee86b234b821756ba66e2"
+  },
+  {
+    "topic": "price",
+    "input_name": "price.html",
+    "page_url": "https://rosstat.gov.ru/statistics/price",
+    "input_sha256": "97744c967eb9986d51bbff2139f7852985f439d6533701a9a115195dc1b6d088"
+  },
+  {
+    "topic": "labour",
+    "input_name": "labor_market_employment_salaries.html",
+    "page_url": "https://rosstat.gov.ru/labor_market_employment_salaries",
+    "input_sha256": "a85e3f474a5cad48c4351f77b2a12629c5b78ff2c3ec502303596c41d8697b6c"
+  },
+  {
+    "topic": "retail",
+    "input_name": "roznichnayatorgovlya.html",
+    "page_url": "https://rosstat.gov.ru/statistics/roznichnayatorgovlya",
+    "input_sha256": "5cfaf02a17f8a9e8c60119406b4ed538adf5a36fadf0a45b9f503c4453e5c8b6"
+  },
+  {
+    "topic": "services",
+    "input_name": "uslugi.html",
+    "page_url": "https://rosstat.gov.ru/uslugi",
+    "input_sha256": "3a7c3333f4094c9c8de24618fc9e8d0e50f1523fae0b994d19a1849731c398d7"
+  }
+]

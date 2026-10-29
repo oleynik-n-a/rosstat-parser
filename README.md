@@ -1,8 +1,73 @@
 # Макростатистика Росстата
 
 Вся загрузка, парсинг, проверки и сохранение CSV находятся в **rosstat_macro.ipynb**.
-Откройте блокнот в Jupyter с Python 3.12+ и выполните **Run All**.
-Первая ячейка устанавливает нужные библиотеки в текущее ядро.
+Для автоматического запуска установите **Python 3.12+**, скачайте репозиторий
+и выполните из его папки:
+
+```bash
+python3 run.py
+```
+
+В Windows используйте `py -3 run.py`. Если команда `python` уже запускает Python 3.12+,
+подойдёт `python run.py`. Один и тот же скрипт работает в macOS, Linux и Windows:
+создаёт `.venv`, устанавливает Jupyter, регистрирует локальное ядро и выполняет
+ноутбук целиком. Первая ячейка ноутбука устанавливает библиотеки обработки данных.
+Открывать Jupyter вручную и активировать среду для этого не требуется.
+
+Результаты записываются в **`results/`** и обновляются при каждом запуске;
+сохранённые результаты уже включены в репозиторий. Выполненный блокнот сохраняется
+в `rosstat_macro.ipynb`. Для первого запуска нужен интернет. Повторный запуск
+с установленными библиотеками и полным кешем источников возможен без сети:
+
+```bash
+python3 run.py --offline
+```
+
+В Windows: `py -3 run.py --offline`. Скрипт также можно вызывать по полному пути
+из другой папки: он сам использует папку проекта как рабочую.
+
+Для ручного запуска через интерфейс Jupyter, если среда ещё не подготовлена:
+
+1. Установите **Python 3.12 или новее** и **Git**.
+2. Скачайте репозиторий и перейдите в его папку:
+
+   ```bash
+   git clone https://github.com/oleynik-n-a/rosstat-parser.git
+   cd rosstat-parser
+   ```
+
+   Если проект уже скачан, откройте терминал в папке с `rosstat_macro.ipynb`
+   и `certificates/`; повторное клонирование не требуется.
+
+3. Создайте виртуальную среду, установите Jupyter и зарегистрируйте ядро.
+
+   **macOS / Linux** — проверьте `python3 --version`: нужна версия 3.12+.
+   Если `python3` указывает на старую версию, используйте команду установленной
+   новой версии, например `python3.13`, при создании среды.
+
+   ```bash
+   python3 -m venv .venv
+   .venv/bin/python -m pip install --upgrade pip
+   .venv/bin/python -m pip install jupyterlab ipykernel
+   .venv/bin/python -m ipykernel install --prefix .venv --name rosstat-local --display-name "Python (rosstat local)"
+   .venv/bin/jupyter lab rosstat_macro.ipynb
+   ```
+
+   **Windows / PowerShell** — проверьте `py -3 --version`: нужна версия 3.12+.
+
+   ```powershell
+   py -3 -m venv .venv
+   .\.venv\Scripts\python.exe -m pip install --upgrade pip
+   .\.venv\Scripts\python.exe -m pip install jupyterlab ipykernel
+   .\.venv\Scripts\python.exe -m ipykernel install --prefix .venv --name rosstat-local --display-name "Python (rosstat local)"
+   .\.venv\Scripts\jupyter.exe lab rosstat_macro.ipynb
+   ```
+
+4. В открывшемся Jupyter выберите ядро **Python (rosstat local)** и выполните
+   **Run → Run All Cells**. Первая ячейка установит зависимости обработки данных
+   в созданную среду, остальные скачают источники и сформируют результаты.
+   Для первого запуска нужен интернет. Папка `certificates/` должна оставаться
+   рядом с блокнотом; вручную устанавливать сертификаты в систему не требуется.
 
 Для запуска из подготовленной локальной среды:
 
@@ -10,13 +75,19 @@
 .venv/bin/jupyter lab rosstat_macro.ipynb
 ```
 
-- `rosstat_macro.ipynb` - единственный файл с кодом, ссылками и пояснениями.
+В Windows для повторного запуска используйте
+`.\.venv\Scripts\jupyter.exe lab rosstat_macro.ipynb`.
+Все команды выполняются из папки проекта; отдельно активировать `.venv` не требуется.
+
+- `rosstat_macro.ipynb` - загрузка, парсинг, проверки, графики и подготовка признаков.
+- `run.py` - подготовка локальной среды и полное выполнение ноутбука одной командой.
+- `results/` - сохранённые CSV и график, которые формирует ноутбук.
 - `certificates/rosstat_ca_bundle.pem` - сертификаты, чтобы работал HTTPS поход на сайт Росстата.
 - `.gitignore` - исключает скачанные данные и локальную среду из Git.
 - `LICENSE` - лицензия исходного репозитория.
 
-Блокнот создаёт `data/raw/` для исходных Excel, HTML и PDF и `data/processed/<время>/`
-для CSV и графика `macro_overview.png`.
+Блокнот создаёт `data/raw/` для исходных Excel, HTML и PDF. Результирующие CSV
+и график `macro_overview.png` сохраняются в `results/`.
 Повторный запуск использует кеш. `ALLOW_NETWORK=False` запрещает новые загрузки;
 `REFRESH=True` обновляет файлы. TLS-проверка включена; системное хранилище сертификатов
 не изменяется. Ссылки на официальные сертификаты указаны в начале PEM-файла.
@@ -32,6 +103,15 @@
 Месячная и квартальная сетки признаков начинаются с 1991 года; пропуски не заполняются. Результаты:
 `features_monthly.csv`, `features_quarterly.csv`, `feature_catalog.csv` с формулами
 и `feature_coverage.csv` с заполненностью столбцов.
+
+В `results/` сохраняются:
+
+- `macro_long.csv` - все исходные ряды, их периоды и сведения об источниках;
+- `macro_monthly.csv`, `macro_quarterly.csv` - месячная и квартальная матрицы исходных значений;
+- `features_monthly.csv`, `features_quarterly.csv` - 23 месячных и 5 квартальных признаков;
+- `feature_catalog.csv`, `feature_coverage.csv` - формулы и заполненность признаков;
+- `quality_report.csv`, `source_notes.csv` - проверки рядов и примечания к источникам;
+- `derived_monthly_for_analysis.csv`, `macro_overview.png` - расчётные ряды для обзора и график.
 
 ---
 

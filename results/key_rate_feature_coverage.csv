@@ -1,0 +1,29 @@
+﻿feature,description,frequency,unit,filled_rows,missing_rows,first_date,last_date
+cpi_mom_index__yoy_chained_pct,"Годовая общая инфляция, расчётная",monthly,%,111,0,2013-10-14,2026-09-11
+cpi_food_mom_index__yoy_chained_pct,"Годовая продовольственная инфляция, расчётная",monthly,%,111,0,2013-10-14,2026-09-11
+cpi_nonfood_mom_index__yoy_chained_pct,"Годовая непродовольственная инфляция, расчётная",monthly,%,111,0,2013-10-14,2026-09-11
+cpi_services_mom_index__yoy_chained_pct,"Годовая инфляция услуг, расчётная",monthly,%,111,0,2013-10-14,2026-09-11
+core_cpi_mom_index__mom_mean_3m_pct,Средняя месячная базовая инфляция за три месяца,monthly,%,12,99,2025-04-25,2026-09-11
+core_cpi_yoy_index__yoy_pct,Годовая базовая инфляция,monthly,%,13,98,2025-03-21,2026-09-11
+ppi_industry_mom_index__yoy_chained_pct,"Годовой рост цен производителей: промышленность, расчётный",monthly,%,108,3,2014-02-14,2026-09-11
+ppi_manufacturing_mom_index__yoy_chained_pct,"Годовой рост цен производителей: обработка, расчётный",monthly,%,108,3,2014-02-14,2026-09-11
+ppi_mining_mom_index__yoy_chained_pct,"Годовой рост цен производителей: добыча, расчётный",monthly,%,108,3,2014-02-14,2026-09-11
+production_industry_mom_index__mom_pct,Месячный рост промпроизводства,monthly,%,58,53,2020-02-07,2026-09-11
+production_industry_yoy_index__yoy_pct,Годовой рост промпроизводства,monthly,%,58,53,2020-02-07,2026-09-11
+production_manufacturing_mom_index__mom_pct,Месячный рост выпуска обработки,monthly,%,58,53,2020-02-07,2026-09-11
+production_manufacturing_yoy_index__yoy_pct,Годовой рост выпуска обработки,monthly,%,58,53,2020-02-07,2026-09-11
+production_mining_mom_index__mom_pct,Месячный рост добычи,monthly,%,58,53,2020-02-07,2026-09-11
+production_mining_yoy_index__yoy_pct,Годовой рост добычи,monthly,%,58,53,2020-02-07,2026-09-11
+unemployment_rate_3month_pct,Уровень безработицы: среднее за три месяца,monthly,%,80,31,2017-04-28,2026-09-11
+nominal_wages_rub__yoy_pct,Годовой рост номинальной зарплаты,monthly,%,111,0,2013-10-14,2026-09-11
+real_wages_yoy_index__yoy_pct,Годовой рост реальной зарплаты,monthly,%,31,80,2023-02-10,2026-09-11
+retail_turnover_nominal_mln_rub__mom_pct,Месячный рост номинального оборота розницы,monthly,%,5,106,2026-03-20,2026-09-11
+retail_real_mom_index__mom_pct,Месячный рост реального оборота розницы,monthly,%,31,80,2023-02-10,2026-09-11
+retail_real_yoy_index__yoy_pct,Годовой рост реального оборота розницы,monthly,%,31,80,2023-02-10,2026-09-11
+paid_services_volume_mom_index__mom_pct,Месячный рост физического объёма платных услуг,monthly,%,42,69,2022-02-11,2026-09-11
+paid_services_volume_yoy_index__yoy_pct,Годовой рост физического объёма платных услуг,monthly,%,42,69,2022-02-11,2026-09-11
+gdp_real_2021_bln_rub__yoy_change_1q_pp,Изменение годового темпа роста ВВП за квартал,quarterly,п.п.,111,0,2013-10-14,2026-09-11
+gdp_real_2021_sa_bln_rub__qoq_pct,Квартальный рост сезонно скорректированного ВВП,quarterly,%,111,0,2013-10-14,2026-09-11
+gdp_volume_yoy_index__yoy_pct,Годовой рост реального ВВП,quarterly,%,111,0,2013-10-14,2026-09-11
+investment_real_ytd_yoy_index__ytd_yoy_pct,Рост инвестиций с начала года к тому же периоду прошлого года,quarterly,%,56,55,2020-04-24,2026-09-11
+real_disposable_income_yoy_index__yoy_pct,Годовой рост реальных располагаемых доходов,quarterly,%,105,6,2014-04-25,2026-09-11
